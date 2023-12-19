@@ -9,7 +9,8 @@
         <mat-card>
           <mat-card-content>
             <div class="content-item__title">
-              <mat-icon>{{ item.icon }}</mat-icon>
+              <div *ngIf="(item.logo !== '' && item.logo); else elseBlock"><img src="{{item.logo}}"></div>
+              <ng-template #elseBlock><mat-icon>{{ item.icon ? item.icon : 'link' }}</mat-icon></ng-template>
               <h3>{{ item.name }}</h3>
             </div>
           </mat-card-content>

@@ -11,6 +11,7 @@
         {
           "name": "Home Assistant",
           "icon": "home",
+          "logo": "/assets/logos/png/home-assistant.png",
           "description": "",
           "url": ""
         },
