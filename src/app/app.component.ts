@@ -12,7 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { ContentComponent } from './core/content/content.component';
-
+import defaultConfig from '../assets/default-config.json'
 
 @Component({
   selector: 'app-root',
@@ -32,8 +32,8 @@ import { ContentComponent } from './core/content/content.component';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-
-  config: Config =
+  config: Config = defaultConfig;
+  configu: Config =
   {
     title: "Tecnual",
     display: "line_style",
@@ -154,7 +154,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log("Inicio...");
-    // localStorage.setItem('config', JSON.stringify(this.config));
+    localStorage.setItem('config', JSON.stringify(this.config));
     this.readLocalStorage();
   }
 
