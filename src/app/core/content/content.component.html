@@ -1,0 +1,12 @@
+<section class="content" [ngClass]="config?.display">
+  <div *ngFor="let section of config?.sections" class="content-section">
+    <h1>{{ section.name }}</h1>
+    <div [ngClass]="config?.display">
+      <div *ngFor="let item of section.items" class="content-section__item">
+        <mat-card>
+          <mat-card-content>{{ item.name }}</mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+.sidenav_container {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.sidenav {
+  display: flex;
+  width: 200px;
+  &-item {
+    &-content {
+      display: flex;
+      align-items: center;
+      &__name {
+        &--margin {
+          margin-left: .5rem;
+        }
+    }
+    }
+  }
+}
+
+.content {
+  &__header {
+    height: 6rem;
+  }
+}
