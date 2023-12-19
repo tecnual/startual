@@ -1,8 +1,11 @@
-<section class="content" [ngClass]="config?.display">
-  <div *ngFor="let section of config?.sections" class="content-section">
-    <h1>{{ section.name }}</h1>
-    <div [ngClass]="config?.display">
-      <div *ngFor="let item of section.items" class="content-section__item">
+<section [ngClass]="'content--' + config?.display">
+  <div *ngFor="let section of config?.sections" class="ddcontent-section" [ngClass]="'content-section--' + config?.display">
+    <div class="content-section__title">
+      <mat-icon>home</mat-icon>
+      <h1>{{ section.name }}</h1>
+    </div>
+    <div [ngClass]="'content-section__items--' + config?.display">
+      <div *ngFor="let item of section.items" [ngClass]="'content-section__item--' + config?.display">
         <mat-card>
           <mat-card-content>{{ item.name }}</mat-card-content>
         </mat-card>

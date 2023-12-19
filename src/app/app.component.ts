@@ -39,10 +39,56 @@ export class AppComponent implements OnInit {
     display: "line_style",
     sections: [
       {
-        name: "Aplicaciones",
+        name: "Aplicaciones 1",
         type: "section",
         icon: "apps",
         order: 0,
+        items: [
+          {
+            name: "HA",
+            description: "",
+            url: "",
+          },
+          {
+            name: "Pihole",
+            description: "",
+            url: "",
+          },
+        ]
+      },
+      {
+        name: "Ideas",
+        type: "section",
+        icon: "lightbulb",
+        order: 4,
+        items: [
+          {
+            name: "idea 1",
+            description: "",
+            url: "",
+          },
+          {
+            name: "Idea 2",
+            description: "",
+            url: "",
+          },
+          {
+            name: "Idea 3",
+            description: "",
+            url: "",
+          },
+          {
+            name: "Idea 4",
+            description: "",
+            url: "",
+          }
+        ]
+      },
+      {
+        name: "Aplicaciones 2",
+        type: "section",
+        icon: "apps",
+        order: 2,
         items: [
           {
             name: "HA",
@@ -57,10 +103,50 @@ export class AppComponent implements OnInit {
         ]
       },
       {
-        name: "Ideas",
+        name: "Aplicaciones 3",
+        type: "section",
+        icon: "apps",
+        order: 3,
+        items: [
+          {
+            name: "HA",
+            description: "",
+            url: "",
+          },
+          {
+            name: "Aplicaciones",
+            description: "",
+            url: "",
+          },
+        ]
+      },
+      {
+        name: "Ideas 2",
         type: "section",
         icon: "lightbulb",
-        order: 0
+        order: 1,
+        items: [
+          {
+            name: "idea 1",
+            description: "",
+            url: "",
+          },
+          {
+            name: "Idea 2",
+            description: "",
+            url: "",
+          },
+          {
+            name: "Idea 3",
+            description: "",
+            url: "",
+          },
+          {
+            name: "Idea 4",
+            description: "",
+            url: "",
+          }
+        ]
       }
     ]
   };
@@ -68,7 +154,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log("Inicio...");
-    localStorage.setItem('config', JSON.stringify(this.config));
+    // localStorage.setItem('config', JSON.stringify(this.config));
     this.readLocalStorage();
   }
 
