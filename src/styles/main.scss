@@ -1,0 +1,14 @@
+@import "layout/main";
+@import "components/main";
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tzr {
+  border: 1px solid red;
+}
+
+

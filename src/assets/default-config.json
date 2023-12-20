@@ -1,0 +1,122 @@
+{
+  "title": "Tecnual",
+  "display": "line_style",
+  "sections": [
+    {
+      "name": "Hogar",
+      "type": "section",
+      "icon": "home",
+      "order": 0,
+      "items": [
+        {
+          "title": "Home Assistant",
+          "icon": "home",
+          "logo": "/assets/logos/png/home-assistant.png",
+          "description": "",
+          "url": "http://home.tecnual:8123/"
+        },
+        {
+          "title": "Idea 1",
+          "description": "",
+          "icon": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "name": "Sistema",
+      "type": "section",
+      "icon": "lightbulb",
+      "order": 4,
+      "items": [
+        {
+          "title": "PiHole",
+          "icon": "home",
+          "logo": "/assets/logos/png/pihole.png",
+          "description": "",
+          "url": "http://pihole.tecnual/admin"
+        },
+        {
+          "title": "Idea 2",
+          "description": "",
+          "url": ""
+        },
+        {
+          "title": "Idea 3",
+          "description": "",
+          "url": ""
+        },
+        {
+          "title": "Idea 4",
+          "description": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "name": "Ideas",
+      "type": "section",
+      "icon": "apps",
+      "order": 2,
+      "items": [
+        {
+          "title": "Github Tecnual",
+          "description": "",
+          "url": "https://github.com/tecnual",
+          "logo": "/assets/logos/png/github.png"
+        },
+        {
+          "title": "Aplicaciones",
+          "description": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "name": "Aplicaciones 3",
+      "type": "section",
+      "icon": "apps",
+      "order": 3,
+      "items": [
+        {
+          "title": "HA",
+          "description": "",
+          "url": ""
+        },
+        {
+          "title": "Aplicaciones",
+          "description": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "name": "Ideas 2",
+      "type": "section",
+      "icon": "lightbulb",
+      "order": 1,
+      "items": [
+        {
+          "title": "idea 1",
+          "description": "",
+          "url": ""
+        },
+        {
+          "title": "Idea 2",
+          "description": "",
+          "url": ""
+        },
+        {
+          "title": "Idea 3",
+          "description": "",
+          "url": ""
+        },
+        {
+          "title": "Idea 4",
+          "description": "",
+          "url": ""
+        }
+      ]
+    }
+  ]
+}
