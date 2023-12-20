@@ -57,13 +57,11 @@ export class AppComponent implements OnInit {
   readLocalStorage() {
     let configuracion = localStorage.getItem('config');
     configuracion ? this.config = JSON.parse(configuracion) : null;
-
-    // console.log("Configuracion", this.config);
   }
 
   saveConfig() {
     console.log('Guardamos la configuración');
-    let filename = 'config.json'
+    let filename = 'startual-config.json'
     var a = document.createElement('a');
     a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(JSON.stringify(this.config)));
     a.setAttribute('download', filename);
@@ -82,7 +80,7 @@ export class AppComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed...', result);
-      this.config = result.data;
+      if (result.event === 'save') this.config = result.data;
     });
   }
 
