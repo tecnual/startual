@@ -14,7 +14,8 @@ export interface Section {
 }
 
 export interface Item {
-  name: string;
+  title: string;
+  subtitle?: string;
   description?: string;
   url: string;
   icon?: string;

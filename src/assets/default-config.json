@@ -9,15 +9,45 @@
       "order": 0,
       "items": [
         {
-          "name": "Home Assistant",
+          "title": "Home Assistant",
           "icon": "home",
           "logo": "/assets/logos/png/home-assistant.png",
+          "description": "",
+          "url": "http://home.tecnual:8123/"
+        },
+        {
+          "title": "Idea 1",
+          "description": "",
+          "icon": "",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "name": "Sistema",
+      "type": "section",
+      "icon": "lightbulb",
+      "order": 4,
+      "items": [
+        {
+          "title": "PiHole",
+          "icon": "home",
+          "logo": "/assets/logos/png/pihole.png",
+          "description": "",
+          "url": "http://pihole.tecnual/admin"
+        },
+        {
+          "title": "Idea 2",
           "description": "",
           "url": ""
         },
         {
-          "name": "PiHole",
-          "icon": "home",
+          "title": "Idea 3",
+          "description": "",
+          "url": ""
+        },
+        {
+          "title": "Idea 4",
           "description": "",
           "url": ""
         }
@@ -26,45 +56,17 @@
     {
       "name": "Ideas",
       "type": "section",
-      "icon": "lightbulb",
-      "order": 4,
-      "items": [
-        {
-          "name": "idea 1",
-          "description": "",
-          "icon": "default",
-          "url": ""
-        },
-        {
-          "name": "Idea 2",
-          "description": "",
-          "url": ""
-        },
-        {
-          "name": "Idea 3",
-          "description": "",
-          "url": ""
-        },
-        {
-          "name": "Idea 4",
-          "description": "",
-          "url": ""
-        }
-      ]
-    },
-    {
-      "name": "Aplicaciones 2",
-      "type": "section",
       "icon": "apps",
       "order": 2,
       "items": [
         {
-          "name": "HA",
+          "title": "Github Tecnual",
           "description": "",
-          "url": ""
+          "url": "https://github.com/tecnual",
+          "logo": "/assets/logos/png/github.png"
         },
         {
-          "name": "Aplicaciones",
+          "title": "Aplicaciones",
           "description": "",
           "url": ""
         }
@@ -77,12 +79,12 @@
       "order": 3,
       "items": [
         {
-          "name": "HA",
+          "title": "HA",
           "description": "",
           "url": ""
         },
         {
-          "name": "Aplicaciones",
+          "title": "Aplicaciones",
           "description": "",
           "url": ""
         }
@@ -95,22 +97,22 @@
       "order": 1,
       "items": [
         {
-          "name": "idea 1",
+          "title": "idea 1",
           "description": "",
           "url": ""
         },
         {
-          "name": "Idea 2",
+          "title": "Idea 2",
           "description": "",
           "url": ""
         },
         {
-          "name": "Idea 3",
+          "title": "Idea 3",
           "description": "",
           "url": ""
         },
         {
-          "name": "Idea 4",
+          "title": "Idea 4",
           "description": "",
           "url": ""
         }

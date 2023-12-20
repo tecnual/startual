@@ -1,20 +1,28 @@
 <section [ngClass]="'content--' + config?.display">
-  <div *ngFor="let section of config?.sections" class="ddcontent-section" [ngClass]="'content-section--' + config?.display">
+  <div *ngFor="let section of config?.sections" [ngClass]="'content-section--' + config?.display">
     <div class="content-section__title">
       <mat-icon>{{ section.icon }}</mat-icon>
       <h1>{{ section.name }}</h1>
     </div>
     <div [ngClass]="'content-section__items--' + config?.display">
       <div *ngFor="let item of section.items" [ngClass]="'content-section__item--' + config?.display">
-        <mat-card>
-          <mat-card-content>
-            <div class="content-item__title">
-              <div *ngIf="(item.logo !== '' && item.logo); else elseBlock"><img src="{{item.logo}}"></div>
-              <ng-template #elseBlock><mat-icon>{{ item.icon ? item.icon : 'link' }}</mat-icon></ng-template>
-              <h3>{{ item.name }}</h3>
-            </div>
-          </mat-card-content>
-        </mat-card>
+        <a href="{{item.url}}" target="_blank">
+          <mat-card>
+            <mat-card-content>
+              <div class="content-section__item--title">
+                <div *ngIf="(item.logo !== '' && item.logo); else elseBlock"><img src="{{ item.logo }}"
+                    class="content-section__item--logo"></div>
+                <ng-template #elseBlock>
+                  <div class="content-section__item--icon">
+                    <mat-icon color="accent">{{ item.icon ?
+                      item.icon : 'link' }}</mat-icon>
+                  </div>
+                </ng-template>
+                <h2>{{ item.title }}</h2>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </a>
       </div>
     </div>
   </div>
