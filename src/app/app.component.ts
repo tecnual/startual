@@ -14,6 +14,17 @@ import { MatListModule } from '@angular/material/list';
 import { ContentComponent } from './core/content/content.component';
 import defaultConfig from '../assets/default-config.json'
 
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialogTitle,
+  MatDialogContent,
+  MatDialogActions,
+  MatDialogClose,
+} from '@angular/material/dialog';
+import { RestoreConfigDialog } from './restore-config.dialog';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -33,27 +44,51 @@ import defaultConfig from '../assets/default-config.json'
 })
 export class AppComponent implements OnInit {
   config: Config = defaultConfig;
-  opened: boolean | null = true;
+  opened: boolean | null = false;
+
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
     console.log("Inicio...");
-    localStorage.setItem('config', JSON.stringify(this.config));
+    //localStorage.setItem('config', JSON.stringify(this.config));
     this.readLocalStorage();
   }
 
   readLocalStorage() {
-    let configuracion = localStorage.getItem('config' );
-    configuracion ? this.config = JSON.parse(configuracion): null;
+    let configuracion = localStorage.getItem('config');
+    configuracion ? this.config = JSON.parse(configuracion) : null;
+
     // console.log("Configuracion", this.config);
   }
 
-  saveConfig(){
+  saveConfig() {
     console.log('Guardamos la configuración');
+    let filename = 'config.json'
+    var a = document.createElement('a');
+    a.setAttribute('href', 'data:text/plain;charset=utf-u,' + encodeURIComponent(JSON.stringify(this.config)));
+    a.setAttribute('download', filename);
+    a.click()
   }
 
-  toggleView() {
-    this.config.display = this.config?.display === "line_style"? "view_column": "line_style"
-    localStorage.setItem('config', JSON.stringify(this.config));
-    console.log("afterToogle", this.config);
+  restoreConfig() {
+    console.log('Recuperamos la configuración');
+    this.openDialog();
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(RestoreConfigDialog, {
+      data: { },
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed...', result);
+      this.config = result.data;
+    });
+  }
+
+toggleView() {
+  this.config.display = this.config?.display === "line_style" ? "view_column" : "line_style"
+  localStorage.setItem('config', JSON.stringify(this.config));
+  console.log("afterToogle", this.config);
+}
 }

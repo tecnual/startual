@@ -11,8 +11,11 @@
       <button mat-icon-button aria-label="View" (click)="toggleView()" title="Change display to {{ config.display === 'line-style' ? 'columns': 'lines' }}">
         <mat-icon>{{ config.display }}</mat-icon>
       </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon (click)="saveConfig">save</mat-icon>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="saveConfig()">
+        <mat-icon>save</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="restoreConfig()">
+        <mat-icon>settings_backup_restore</mat-icon>
       </button>
     </mat-toolbar>
 </header>
