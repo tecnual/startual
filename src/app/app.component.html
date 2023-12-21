@@ -1,6 +1,5 @@
-
 <div class="main">
-<header>
+  <header>
     <mat-toolbar color="primary">
       <button mat-icon-button class="example-icon" (click)="sidenav.toggle()"
         aria-label="Example icon-button with menu icon">
@@ -8,34 +7,38 @@
       </button>
       <span class="header__title">{{ config.title}}</span>
       <span class="header--spacer"></span>
-      <button mat-icon-button aria-label="View" (click)="toggleView()" title="Change display to {{ config.display === 'line-style' ? 'columns': 'lines' }}">
+      <button mat-icon-button aria-label="View" (click)="toggleView()"
+        title="Change display to {{ config.display === 'line-style' ? 'columns': 'lines' }}">
         <mat-icon>{{ config.display }}</mat-icon>
       </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="saveConfig()">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+        (click)="saveConfig()" title="Guardar configuración">
         <mat-icon>save</mat-icon>
       </button>
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="restoreConfig()">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"
+        (click)="restoreConfig()" title="Restaurar configuración">
         <mat-icon>settings_backup_restore</mat-icon>
       </button>
     </mat-toolbar>
-</header>
-<mat-sidenav-container class="sidenav_container">
-  <mat-sidenav #sidenav mode="side" class="sidenav" [(opened)]="opened">
-    <mat-list *ngFor="let item of config?.sections; index as i; first as isFirst">
-      <mat-list-item class="sidenav-item">
-        <div class="sidenav-item-content">
-          <mat-icon color="accent">{{ item.icon }}</mat-icon>
-          <span class="sidenav-item-content__name--margin">{{ item.name }}</span>
-        </div>
-      </mat-list-item>
-
-      <mat-divider></mat-divider>
-    </mat-list>
-  </mat-sidenav>
-  <mat-sidenav-content class="content">
-    <section>
-      <app-content [config]="config"></app-content>
-    </section>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </header>
+  <mat-sidenav-container class="sidenav_container" hasBackdrop="true">
+    <mat-sidenav #sidenav mode="side" class="sidenav" [(opened)]="opened" (click)="sidenav.toggle()" [mode]="'over'">
+      <mat-list *ngFor="let item of config?.sections; index as i; first as isFirst">
+        <mat-list-item class="sidenav-item">
+          <a href="#{{item.id}}">
+            <div class="sidenav-item-content">
+              <mat-icon color="accent">{{ item.icon }}</mat-icon>
+              <span class="sidenav-item-content__name--margin">{{ item.name }}</span>
+            </div>
+          </a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="content">
+      <section>
+        <app-content [config]="config"></app-content>
+      </section>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

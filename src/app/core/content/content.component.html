@@ -1,6 +1,6 @@
 <section [ngClass]="'content--' + config?.display">
   <div *ngFor="let section of config?.sections" [ngClass]="'content-section--' + config?.display">
-    <div class="content-section__title">
+    <div [id]="section.id" class="content-section__title">
       <mat-icon>{{ section.icon }}</mat-icon>
       <h1>{{ section.name }}</h1>
     </div>

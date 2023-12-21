@@ -6,6 +6,7 @@ export interface Config {
 
 export interface Section {
     name: string;
+    id: string;
     type?: string;
     icon?: string;
     logo?: string;

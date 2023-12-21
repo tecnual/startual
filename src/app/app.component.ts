@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log("Inicio...");
-    //localStorage.setItem('config', JSON.stringify(this.config));
+    localStorage.setItem('config', JSON.stringify(this.config));
     this.readLocalStorage();
   }
 
