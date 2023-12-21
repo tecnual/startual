@@ -10,6 +10,7 @@
       "items": [
         {
           "title": "Home Assistant",
+          "subtitle": "Domótica en el hogar",
           "icon": "home",
           "logo": "/assets/logos/png/home-assistant.png",
           "description": "",

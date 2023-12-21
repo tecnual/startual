@@ -1,9 +1,12 @@
-<h1 mat-dialog-title>Restore Configuration</h1>
-<div mat-dialog-content>
+<h1 mat-dialog-title>Recuperar Configuración</h1>
+<div mat-dialog-content class="restore-dialog-content">
   <button type="button" mat-raised-button (click)="fileInput.click()">Selecciona un fichero</button>
   <input hidden #fileInput type="file" class="file-upload" (change)="fileChanged($event)" id="file">
+  <div class="restore-dialog-content__message">
+    Nombre del fichero: {{filename}}
+  </div>
 </div>
 <div mat-dialog-actions>
   <button mat-button cdkFocusInitial mat-dialog-close>Descartar</button>
-  <button mat-button  (click)="restoreConfig()" [disabled]="!valid">Aplicar</button>
+  <button mat-button  (click)="restoreConfig()" color="accent" [disabled]="!valid">Aplicar</button>
 </div>

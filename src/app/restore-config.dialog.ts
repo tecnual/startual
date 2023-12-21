@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   MatDialogRef,
   MatDialogActions,
@@ -13,12 +14,13 @@ import { Config } from './dtos/config.dto';
   selector: 'restore-config-dialog',
   templateUrl: 'restore-config.dialog.html',
   standalone: true,
-  imports: [MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
+  imports: [CommonModule, MatButtonModule, MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent],
 })
 
 export class RestoreConfigDialog {
   constructor(public dialogRef: MatDialogRef<RestoreConfigDialog>) {}
-  file:any;
+  file: any;
+  filename: string | null = null;
   config:Config | null= null;
   valid:boolean = false;
   fileChanged(e: any) {
@@ -31,15 +33,17 @@ export class RestoreConfigDialog {
     fileReader.onload = (e) => {
       console.log('salida... ', e);
       const result = fileReader.result?.toString();
+
       //this.config = JSON.parse(fileReader.result?.toString());
       try {
       this.config = JSON.parse(result!);
+      this.filename = this.file.name
       this.valid = true;
       } catch(e) {
         console.log('fichero no valido');
         this.valid = false;
       }
-      console.log("Configuracion restaurada...", this.config);
+      console.log("Configuracion encontrada...", this.config);
     }
     fileReader.readAsText(this.file);
 

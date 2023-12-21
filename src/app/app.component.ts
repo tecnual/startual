@@ -15,13 +15,7 @@ import { ContentComponent } from './core/content/content.component';
 import defaultConfig from '../assets/default-config.json'
 
 import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogActions,
-  MatDialogClose,
+  MatDialog
 } from '@angular/material/dialog';
 import { RestoreConfigDialog } from './restore-config.dialog';
 
@@ -50,7 +44,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log("Inicio...");
-    //localStorage.setItem('config', JSON.stringify(this.config));
+    localStorage.setItem('config', JSON.stringify(this.config));
     this.readLocalStorage();
   }
 
@@ -79,8 +73,8 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed...', result);
-      if (result.event === 'save') this.config = result.data;
+      // console.log('The dialog was closed...', result);
+      if (result?.event === 'save') this.config = result.data;
     });
   }
 
