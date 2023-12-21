@@ -1,10 +1,32 @@
 .restore-dialog {
+  width: 90%;
   &-content {
-    color: #444;
-    &__message {
-      color: #444;
-      margin-top: 1rem;
 
+    color: #444;
+
+    &__message {
+      &--valid {
+        display: flex;
+        flex-direction: row;
+        color: #444;
+        margin-top: 1rem;
+        align-items: center;
+        .mat-icon:last-child {
+          margin-left: 1rem;
+          color: green;
+        }
+      }
+      &--error {
+        display: flex;
+        flex-direction: row;
+        color: #444;
+        margin-top: 1rem;
+        align-items: center;
+        .mat-icon:last-child {
+          margin-left: 1rem;
+          color: red;
+        }
+      }
     }
   }
 }

@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log("Inicio...");
-    localStorage.setItem('config', JSON.stringify(this.config));
+    //localStorage.setItem('config', JSON.stringify(this.config));
     this.readLocalStorage();
   }
 
@@ -68,19 +68,22 @@ export class AppComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(RestoreConfigDialog, {
-      data: { },
+    const dialogRef = this.dialog.open(RestoreConfigDialog,{
+      panelClass: 'restore-dialog'
     });
 
     dialogRef.afterClosed().subscribe(result => {
       // console.log('The dialog was closed...', result);
-      if (result?.event === 'save') this.config = result.data;
+      if (result?.event === 'save') {
+        this.config = result.data;
+        localStorage.setItem('config', JSON.stringify(this.config));
+      }
     });
   }
 
-toggleView() {
-  this.config.display = this.config?.display === "line_style" ? "view_column" : "line_style"
-  localStorage.setItem('config', JSON.stringify(this.config));
-  console.log("afterToogle", this.config);
-}
+  toggleView() {
+    this.config.display = this.config?.display === "line_style" ? "view_column" : "line_style"
+    localStorage.setItem('config', JSON.stringify(this.config));
+    console.log("afterToogle", this.config);
+  }
 }

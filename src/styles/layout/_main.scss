@@ -1,2 +1,8 @@
 @import "header";
 @import "content";
+
+.error-message {
+  margin-left: .5rem;
+  font-size: 0.7rem;
+  color: red;
+}
