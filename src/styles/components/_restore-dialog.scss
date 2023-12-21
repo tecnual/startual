@@ -1,5 +1,14 @@
 .restore-dialog {
-  width: 90%;
+  width: auto;
+  &-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    & h1 {
+      margin: 1rem;
+    }
+  }
   &-content {
 
     color: #444;

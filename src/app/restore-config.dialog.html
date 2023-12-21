@@ -1,4 +1,11 @@
-<h1 mat-dialog-title>Recuperar Configuración</h1>
+
+  <div class="restore-dialog-title">
+  <h1>Recuperar Configuración</h1>
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
 <div mat-dialog-content class="restore-dialog-content">
   <button type="button" mat-raised-button (click)="fileInput.click()">Selecciona un fichero</button>
   <input hidden #fileInput type="file" class="file-upload" (change)="fileChanged($event)" id="file">
