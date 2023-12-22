@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 
 import { Config, Section } from './dtos/config.dto';
 
+import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+
 import { ContentComponent } from './core/content/content.component';
 import defaultConfig from '../assets/default-config.json'
 
@@ -32,20 +36,29 @@ import { RestoreConfigDialog } from './restore-config.dialog';
     MatIconModule,
     MatToolbarModule,
     MatListModule,
-    ContentComponent
+    ContentComponent,
+    MatMenuModule,
+    TranslocoModule
   ],
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   config: Config = defaultConfig;
   opened: boolean | null = false;
-
-  constructor(public dialog: MatDialog) {}
+  lang: string = 'es';
+  layoutToggle: string = 'layout-title-lines';
+  constructor(public dialog: MatDialog, public translocoService: TranslocoService) {}
 
   ngOnInit() {
     console.log("Inicio...");
-    localStorage.setItem('config', JSON.stringify(this.config));
+    //localStorage.setItem('config', JSON.stringify(this.config));
     this.readLocalStorage();
+    if (this.config.display === 'line-style') {
+      this.layoutToggle = 'layout-title-columns';
+    } else {
+      this.layoutToggle = 'layout-title-lines';
+    }
+    console.log('this.layoutToggle: ', this.layoutToggle, this.config.display)
   }
 
   readLocalStorage() {
@@ -82,8 +95,14 @@ export class AppComponent implements OnInit {
   }
 
   toggleView() {
-    this.config.display = this.config?.display === "line_style" ? "view_column" : "line_style"
+    this.config.display = this.config?.display === 'line_style' ? 'view_column' : 'line_style';
+    this.layoutToggle = this.config?.display === 'line_style' ? 'layout-title-columns' : 'layout-title-lines';
     localStorage.setItem('config', JSON.stringify(this.config));
-    console.log("afterToogle", this.config);
+  }
+
+  changeLang(lang: string) {
+    //this.display = this.config.display === 'line-style' ? 'columns': 'lines';
+    this.lang = lang;
+    this.translocoService.setActiveLang(lang);
   }
 }

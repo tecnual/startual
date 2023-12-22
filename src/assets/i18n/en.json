@@ -1,0 +1,11 @@
+{
+  "language": "Language",
+  "layout-title-lines": "Change display to lines",
+  "layout-title-columns": "Change display to columns",
+  "lang": {
+    "es": "Spanish",
+    "en": "English"
+  },
+  "save-config": "Save config",
+  "restore-config": "Restore config"
+}
