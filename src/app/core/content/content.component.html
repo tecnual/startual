@@ -1,6 +1,6 @@
 <section [ngClass]="'content--' + config?.display">
   <div *ngFor="let section of config?.sections" [ngClass]="'content-section--' + config?.display">
-    <div class="content-section__title">
+    <div [id]="section.id" class="content-section__title">
       <mat-icon>{{ section.icon }}</mat-icon>
       <h1>{{ section.name }}</h1>
     </div>
@@ -9,7 +9,7 @@
         <a href="{{item.url}}" target="_blank">
           <mat-card>
             <mat-card-content>
-              <div class="content-section__item--title">
+              <div class="content-section__item">
                 <div *ngIf="(item.logo !== '' && item.logo); else elseBlock"><img src="{{ item.logo }}"
                     class="content-section__item--logo"></div>
                 <ng-template #elseBlock>
@@ -18,7 +18,10 @@
                       item.icon : 'link' }}</mat-icon>
                   </div>
                 </ng-template>
-                <h2>{{ item.title }}</h2>
+                <div class="content-section__item--content">
+                  <h2>{{ item.title }}</h2>
+                  <span *ngIf="item.subtitle">{{ item.subtitle }}</span>
+                </div>
               </div>
             </mat-card-content>
           </mat-card>

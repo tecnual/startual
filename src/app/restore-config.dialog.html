@@ -1,0 +1,25 @@
+
+  <div class="restore-dialog-title">
+  <h1>Recuperar Configuración</h1>
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<div mat-dialog-content class="restore-dialog-content">
+  <button type="button" mat-raised-button (click)="fileInput.click()">Selecciona un fichero</button>
+  <input hidden #fileInput type="file" class="file-upload" (change)="fileChanged($event)" id="file">
+  <div *ngIf="filename && valid" class="restore-dialog-content__message--valid">
+      <mat-icon>attach_file</mat-icon> {{filename}}
+      <mat-icon>check_circle</mat-icon>
+  </div>
+  <div *ngIf="filename && !valid" class="restore-dialog-content__message--error">
+    <mat-icon>attach_file</mat-icon> {{filename}}
+    <mat-icon>cancel</mat-icon>
+  </div>
+  <span *ngIf="filename && !valid" class="error-message">El fichero no es válido</span>
+</div>
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial mat-dialog-close>Descartar</button>
+  <button mat-button (click)="restoreConfig()" color="accent" [disabled]="!valid">Aplicar</button>
+</div>

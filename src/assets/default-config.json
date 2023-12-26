@@ -1,15 +1,18 @@
 {
   "title": "Tecnual",
   "display": "line_style",
+  "language": "es",
   "sections": [
     {
       "name": "Hogar",
+      "id": "hogar",
       "type": "section",
       "icon": "home",
       "order": 0,
       "items": [
         {
           "title": "Home Assistant",
+          "subtitle": "Domótica en el hogar",
           "icon": "home",
           "logo": "/assets/logos/png/home-assistant.png",
           "description": "",
@@ -25,6 +28,7 @@
     },
     {
       "name": "Sistema",
+      "id": "Sistema",
       "type": "section",
       "icon": "lightbulb",
       "order": 4,
@@ -55,6 +59,7 @@
     },
     {
       "name": "Ideas",
+      "id": "ideas",
       "type": "section",
       "icon": "apps",
       "order": 2,
@@ -74,6 +79,7 @@
     },
     {
       "name": "Aplicaciones 3",
+      "id": "apps",
       "type": "section",
       "icon": "apps",
       "order": 3,
@@ -92,6 +98,7 @@
     },
     {
       "name": "Ideas 2",
+      "id": "ideas2",
       "type": "section",
       "icon": "lightbulb",
       "order": 1,

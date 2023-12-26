@@ -2,10 +2,12 @@ export interface Config {
    title: string;
    sections: Section[];
    display: string;
+   language: string;
 }
 
 export interface Section {
     name: string;
+    id: string;
     type?: string;
     icon?: string;
     logo?: string;
