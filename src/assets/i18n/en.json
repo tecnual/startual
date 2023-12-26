@@ -2,6 +2,7 @@
   "language": "Language",
   "layout-title-lines": "Change display to lines",
   "layout-title-columns": "Change display to columns",
+  "backup": "Backup",
   "lang": {
     "es": "Spanish",
     "en": "English"

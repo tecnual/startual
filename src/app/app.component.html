@@ -16,23 +16,32 @@
         <mat-icon>settings</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="backup_menu">Backup</button>
+        <button mat-menu-item [matMenuTriggerFor]="lang_menu">{{ 'language' | transloco  }}</button>
+      </mat-menu>
+
+      <mat-menu #lang_menu="matMenu">
+        <button mat-menu-item aria-label="Example icon-button with share icon" (click)="changeLang('es')" [disabled]="config.language==='es'">
+          <span class="fi fi-es"></span>&nbsp;&nbsp;&nbsp;
+          <span>{{ 'lang.es' | transloco  }}</span>
+        </button>
+        <button mat-menu-item aria-label="Example icon-button with share icon" (click)="changeLang('en')" [disabled]="config.language==='en'">
+          <span class="fi fi-us"></span>&nbsp;&nbsp;&nbsp;
+          <span>{{ 'lang.en' | transloco  }}</span>
+        </button>
+      </mat-menu>
+
+      <mat-menu #backup_menu="matMenu">
         <button mat-menu-item aria-label="Example icon-button with share icon" (click)="saveConfig()">
           <mat-icon>save</mat-icon>
-          <span>{{ layoutToggle | transloco}}</span>
+          <span>{{ 'save-config' | transloco}}</span>
         </button>
         <button mat-menu-item aria-label="Example icon-button with share icon" (click)="restoreConfig()">
           <mat-icon>settings_backup_restore</mat-icon>
           <span>{{ 'restore-config' | transloco  }}</span>
         </button>
-        <button mat-menu-item aria-label="Example icon-button with share icon" (click)="changeLang('es')">
-          <span class="fi fi-es"></span>&nbsp;&nbsp;&nbsp;
-          <span>{{ 'lang.es' | transloco  }}</span>
-        </button>
-        <button mat-menu-item aria-label="Example icon-button with share icon" (click)="changeLang('en')">
-          <span class="fi fi-us"></span>&nbsp;&nbsp;&nbsp;
-          <span>{{ 'lang.en' | transloco  }}</span>
-        </button>
       </mat-menu>
+
     </mat-toolbar>
   </header>
   <mat-sidenav-container class="sidenav_container" hasBackdrop="true">
