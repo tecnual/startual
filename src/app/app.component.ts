@@ -45,11 +45,10 @@ import { RestoreConfigDialog } from './restore-config.dialog';
 export class AppComponent implements OnInit {
   config: Config = defaultConfig;
   opened: boolean | null = false;
-  lang: string = 'es';
   layoutToggle: string = 'layout-title-lines';
   constructor(public dialog: MatDialog, public translocoService: TranslocoService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     console.log("Inicio...");
     //localStorage.setItem('config', JSON.stringify(this.config));
     this.readLocalStorage();
@@ -61,12 +60,16 @@ export class AppComponent implements OnInit {
     console.log('this.layoutToggle: ', this.layoutToggle, this.config.display)
   }
 
-  readLocalStorage() {
+  readLocalStorage(): void {
     let configuracion = localStorage.getItem('config');
     configuracion ? this.config = JSON.parse(configuracion) : null;
   }
 
-  saveConfig() {
+  saveConfigToLocalStorage(): void {
+    localStorage.setItem('config', JSON.stringify(this.config));
+  }
+
+  saveConfig(): void {
     console.log('Guardamos la configuración');
     let filename = 'startual-config.json'
     var a = document.createElement('a');
@@ -75,7 +78,7 @@ export class AppComponent implements OnInit {
     a.click()
   }
 
-  restoreConfig() {
+  restoreConfig(): void {
     console.log('Recuperamos la configuración');
     this.openDialog();
   }
@@ -94,15 +97,15 @@ export class AppComponent implements OnInit {
     });
   }
 
-  toggleView() {
+  toggleView(): void {
     this.config.display = this.config?.display === 'line_style' ? 'view_column' : 'line_style';
     this.layoutToggle = this.config?.display === 'line_style' ? 'layout-title-columns' : 'layout-title-lines';
     localStorage.setItem('config', JSON.stringify(this.config));
   }
 
   changeLang(lang: string) {
-    //this.display = this.config.display === 'line-style' ? 'columns': 'lines';
-    this.lang = lang;
     this.translocoService.setActiveLang(lang);
+    this.config.language = lang;
+    this.saveConfigToLocalStorage();
   }
 }

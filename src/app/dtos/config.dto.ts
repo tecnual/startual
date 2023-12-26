@@ -2,6 +2,7 @@ export interface Config {
    title: string;
    sections: Section[];
    display: string;
+   language: string;
 }
 
 export interface Section {
