@@ -1,4 +1,4 @@
-FROM node:20-alpine as build-step
+FROM node:latest as build
 
 RUN mkdir -p /app
 
@@ -10,9 +10,9 @@ RUN npm install
 
 COPY . /app
 
-RUN npm run build --prod
+RUN npm run build
 
 
 FROM nginx:latest
 
-COPY --from=build-step /app/dist/startual /usr/share/nginx/html
+COPY --from=build /app/dist/startual/browser /usr/share/nginx/html
